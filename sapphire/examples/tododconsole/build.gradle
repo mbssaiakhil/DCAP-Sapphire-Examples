@@ -1,0 +1,24 @@
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile files ('deploy/libs/sapphire-core.jar')
+    compile files ('deploy/libs/apache.harmony.jar')
+    compile files ('deploy/libs/java.rmi.jar')
+    compile files ('deploy/libs/javax.rmi.jar')
+}
+
+jar {
+  manifest {
+    attributes('Main-Class': 'console.Console')
+  }
+  jar.archiveName = 'TodoConsole.jar'
+}
